@@ -61,7 +61,7 @@ Asegúrate de tener instaladas las siguientes herramientas:
 
 ## Instalación del Proyecto
 
-1. Clona este repositorio:
+1. Clona este repositorio desde la terminal:
 
    ```bash
    git clone https://github.com/elmaxi11/52015.git
@@ -72,7 +72,7 @@ Asegúrate de tener instaladas las siguientes herramientas:
 2. Cambia al directorio del proyecto:
 
    ```bash
-   cd Analizador
+   cd 52015
    ```
 
 3. Abre el proyecto en VS Code:
