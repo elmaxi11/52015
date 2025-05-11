@@ -1,0 +1,5 @@
+mientras verdadero  {
+        mientras verdadero {
+            imprimir("Hola mundo?.!");
+        }
+    }

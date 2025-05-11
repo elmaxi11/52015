@@ -1,0 +1,3 @@
+mientras verdaderoo {
+            imprimir("Hola mundo?.!");
+        }
