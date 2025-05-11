@@ -72,7 +72,7 @@ Asegúrate de tener instaladas las siguientes herramientas:
 2. Cambia al directorio del proyecto:
 
    ```bash
-   cd 52015
+   cd 52015/Analizador
    ```
 
 3. Abre el proyecto en VS Code:
@@ -89,7 +89,7 @@ El archivo principal es `index.js`, que analiza el contenido del archivo `input.
 
 ### 📝 Para probar el analizador:
 
-1. Copia el contenido de uno de los ejemplos en el archivo `input.txt` y guarda el archivo.
+1. Copia el contenido de uno de los ejemplos ubicados en la carpeta 52015 en el archivo `input.txt` y guarda el archivo.
 
 2. Ejecuta el analizador, para ello debes abrir la terminal de VScode y escribir:
 
@@ -99,11 +99,10 @@ El archivo principal es `index.js`, que analiza el contenido del archivo `input.
  > En caso de nunca haber utilizado este comando debe ejecutar en la terminal el siguiente código antes de escribir npm start:
 > ```bash
 > Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-   ```
 
 3. La salida esperada será algo como:
 
-   ```
+
    Entrada válida.
 
    Tabla de Lexemas:  
