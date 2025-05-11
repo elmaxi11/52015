@@ -75,7 +75,7 @@ Asegúrate de tener instaladas las siguientes herramientas:
    cd 52015/Analizador
    ```
 
-3. Abre el proyecto en VS Code:
+3. Para abrir el proyecto en VS Code escribe esto en la terminal:
 
    ```bash
    code .
