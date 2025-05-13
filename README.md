@@ -79,7 +79,9 @@ Este proyecto utiliza **ANTLR4** y **Node.js** para analizar instrucciones escri
 El analizador reconoce instrucciones con el siguiente formato:
 
 ```plaintext
-mientras verdadero|falso { imprimir("Cadena de Prueba"); }
+mientras verdadero|falso { 
+   imprimir ("Cadena de Prueba"); 
+}
 ```
 
 También es posible anidar estas instrucciones:
@@ -87,7 +89,7 @@ También es posible anidar estas instrucciones:
 ```plaintext
 mientras verdadero|falso { 
     mientras verdadero|falso {
-        imprimir("Cadena de Prueba");
+        imprimir ("Cadena de Prueba");
     }
 }
 ```
@@ -102,7 +104,7 @@ Las cadenas utilizadas en `imprimir` aceptan:
 
 ### ⚙️ Lógica de ejecución
 
-- Si la condición es `verdadero`, , se ingresa al bloque del `mientras`, el cual siempre contiene una única instrucción `imprimir`.
+- Si la condición es `verdadero`, se ingresa al bloque del `mientras`, el cual siempre contiene una única instrucción `imprimir`.
 - Al ejecutarse `imprimir`, se muestra la cadena por pantalla y se finaliza inmediatamente el bucle, ya que no hay más instrucciones dentro.
 - Si la condición es `falso`, el bloque no se ejecuta en absoluto.
 
