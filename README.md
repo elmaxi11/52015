@@ -4,14 +4,14 @@ Este proyecto utiliza **ANTLR4** y **Node.js** para analizar instrucciones escri
 
 `<programa> ::= { <instrucción> } ;`   
 `<instrucción> ::= <bucle> | <salida>;`  
-`<bucle> ::= "mientras" <condición> "{" { <instrucción> } "}" ;`
-`<salida> ::= "imprimir" "(" <cadena> ")" ";";`
-`<condición> ::= "verdadero" | "falso" ;`
-`<cadena> ::= """ { <carácter> } """ ;`
-`<carácter> ::= <letra> | <dígito> | " " | <símbolo> ;`
-`<letra> ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z" ;`
-`<dígito> ::= "0" | "1" | ... | "9" ;`
-`<símbolo> ::= "." | "," | "!" | "?" | ":" | ";" | "'" .`
+`<bucle> ::= "mientras" <condición> "{" { <instrucción> } "}" ;`  
+`<salida> ::= "imprimir" "(" <cadena> ")" ";";`  
+`<condición> ::= "verdadero" | "falso" ;`  
+`<cadena> ::= """ { <carácter> } """ ;`  
+`<carácter> ::= <letra> | <dígito> | " " | <símbolo> ;`  
+`<letra> ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z" ;`  
+`<dígito> ::= "0" | "1" | ... | "9" ;`  
+`<símbolo> ::= "." | "," | "!" | "?" | ":" | ";" | "'" .`  
 
 ## Instalación del Proyecto
 
@@ -52,6 +52,8 @@ Este proyecto utiliza **ANTLR4** y **Node.js** para analizar instrucciones escri
    > Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
    > ```
 
+   > 💡 **Nota:** Si no se proporciona ningún archivo de entrada (`input.txt`), igualmente es posible ejecutar el programa con `npm start`. En ese caso, se podrá ingresar manualmente una cadena por consola, la cual será analizada para verificar si pertenece a la gramática.
+
 3. La salida esperada será algo como:
 
    ```
@@ -70,7 +72,6 @@ Este proyecto utiliza **ANTLR4** y **Node.js** para analizar instrucciones escri
    Fin del programa
    ```
 
----
 
 ## Funcionamiento del Lenguaje
 
@@ -79,16 +80,19 @@ Este proyecto utiliza **ANTLR4** y **Node.js** para analizar instrucciones escri
 El analizador reconoce instrucciones con el siguiente formato:
 
 ```plaintext
-mientras verdadero|falso { 
+mientras verdadero { 
+   imprimir ("Cadena de Prueba"); 
+}
+mientras falso { 
    imprimir ("Cadena de Prueba"); 
 }
 ```
 
-También es posible anidar estas instrucciones:
+También es posible anidar instrucciones:
 
 ```plaintext
-mientras verdadero|falso { 
-    mientras verdadero|falso {
+mientras verdadero { 
+    mientras falso {
         imprimir ("Cadena de Prueba");
     }
 }
@@ -96,25 +100,25 @@ mientras verdadero|falso {
 
 ### ✨ Características de las cadenas
 
-Las cadenas utilizadas en `imprimir` aceptan:
+Las cadenas utilizadas en `imprimir` deben estar entre comillas dobles, dentro de las mismas se aceptan:
 
 - Letras mayúsculas y minúsculas  
-- Números  
+- Números
+- Espacios
 - Símbolos: `. , ! ? : ;`
 
 ### ⚙️ Lógica de ejecución
 
-- Si la condición es `verdadero`, se ingresa al bloque del `mientras`, el cual siempre contiene una única instrucción `imprimir`.
-- Al ejecutarse `imprimir`, se muestra la cadena por pantalla y se finaliza inmediatamente el bucle, ya que no hay más instrucciones dentro.
+- Si la condición es `verdadero`, se ingresa al bloque del `mientras` y se procesan sus instrucciones.
+- Al ejecutarse `imprimir`, se muestra la cadena por pantalla y se finaliza inmediatamente el bucle, ya que esta es la instruccion de salida.
 - Si la condición es `falso`, el bloque no se ejecuta en absoluto.
-
-
 
 ---
 
 ## Estructura Principal del Proyecto
 
 - `gramebnf.g4`: Gramática del lenguaje.
+- `gramebnflexer.g4`: Lexemas del lenguaje.
 - `input.txt`: Archivo de entrada con ejemplos de prueba.
 - `index.js`: Lógica principal del analizador.
 - `CustomgramebnfListener.js` / `CustomgramebnfVisitor.js`: Recorrido y procesamiento del árbol.
